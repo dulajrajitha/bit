@@ -1,0 +1,42 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package TIMS.app.core.model;
+
+import TIMS.app.core.dao.MenuDao;
+import TIMS.app.lib.hbm.TimsMenu;
+
+/**
+ *
+ * @author Nuwan Chathuranga <icechathuranga@gmail.com>
+ */
+public class MenuModel {
+ 
+    protected MenuDao menuDao;
+
+    /**
+     * Get MenuDao object
+     * 
+     * @return MenuDao
+     */
+    public MenuDao getMenuDao() {
+        if(menuDao == null){
+            menuDao = new MenuDao();
+        }
+        return menuDao;
+    }
+
+    public void setMenuDao(MenuDao menuDao) {
+        this.menuDao = menuDao;
+    }
+    
+    
+    public TimsMenu getMenuByName(String menuName){
+        return this.getMenuDao().getMenuByName(menuName);
+        
+    }
+    
+    
+    
+}

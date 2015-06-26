@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-reverse-engineering PUBLIC "-//Hibernate/Hibernate Reverse Engineering DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-reverse-engineering-3.0.dtd">
+<hibernate-reverse-engineering>
+  <schema-selection match-catalog="bit_project"/>
+  <table-filter match-name="tims_product_group"/>
+  <table-filter match-name="tims_good_recieve_note"/>
+  <table-filter match-name="tims_product"/>
+  <table-filter match-name="tims_user_user_role"/>
+  <table-filter match-name="tims_user"/>
+  <table-filter match-name="tims_recieved_good"/>
+  <table-filter match-name="tims_data_group"/>
+  <table-filter match-name="tims_purches"/>
+  <table-filter match-name="tims_invoice"/>
+  <table-filter match-name="tims_stock_return"/>
+  <table-filter match-name="tims_sale_return"/>
+  <table-filter match-name="tims_product_type"/>
+  <table-filter match-name="tims_customer"/>
+  <table-filter match-name="tims_screen"/>
+  <table-filter match-name="tims_user_role_screen"/>
+  <table-filter match-name="tims_barnd"/>
+  <table-filter match-name="tims_supplier"/>
+  <table-filter match-name="tims_user_role_data_group"/>
+  <table-filter match-name="tims_employee"/>
+  <table-filter match-name="tims_menu_menu_item"/>
+  <table-filter match-name="tims_product_brand"/>
+  <table-filter match-name="tims_payment"/>
+  <table-filter match-name="tims_user_role"/>
+  <table-filter match-name="tims_data_group_screen"/>
+  <table-filter match-name="tims_sale"/>
+  <table-filter match-name="tims_product_product_group"/>
+  <table-filter match-name="tims_menu_item"/>
+  <table-filter match-name="tims_payment_method"/>
+  <table-filter match-name="tims_menu"/>
+</hibernate-reverse-engineering>

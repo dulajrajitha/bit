@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated May 25, 2014 10:57:00 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="TIMS.app.lib.hbm.TimsRecievedGood" table="tims_recieved_good" catalog="bit_project">
+        <id name="code" type="java.lang.Integer">
+            <column name="code" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="timsPurches" class="TIMS.app.lib.hbm.TimsPurches" fetch="select">
+            <column name="purches_code" />
+        </many-to-one>
+        <many-to-one name="timsGoodRecieveNote" class="TIMS.app.lib.hbm.TimsGoodRecieveNote" fetch="select">
+            <column name="grn_no" />
+        </many-to-one>
+        <property name="qty" type="java.lang.Integer">
+            <column name="qty" />
+        </property>
+        <property name="date" type="date">
+            <column name="date" length="10" />
+        </property>
+        <property name="note" type="string">
+            <column name="note" length="65535" />
+        </property>
+    </class>
+</hibernate-mapping>

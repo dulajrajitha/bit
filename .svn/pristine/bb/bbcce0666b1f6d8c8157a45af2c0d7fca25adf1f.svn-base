@@ -1,0 +1,47 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package TIMS.supplier.controller;
+
+
+import TIMS.app.core.controller.BaseController;
+import TIMS.supplier.view.SupplierForm;
+import java.awt.event.ActionEvent;
+import javax.swing.BoxLayout;
+
+/**
+ *
+ * @author Damith
+ */
+public class AddSupplierController extends BaseController{
+
+    public AddSupplierController(ActionEvent e) {
+        super(e);
+    }
+    
+    @Override
+    public void execute() {
+        try{
+            this.setAddSupplierScreen();
+        }catch(Exception ex){
+            System.out.print("Errors------>"+ex);
+        }
+         
+    }
+
+    private void setAddSupplierScreen() {
+        try{
+            SupplierForm supplierForm = new SupplierForm();
+            this.getMainPanel().removeAll();
+            this.getMainPanel().setLayout(new BoxLayout(this.getMainPanel(), BoxLayout.PAGE_AXIS));
+            this.getMainPanel().add(supplierForm);
+            this.getTemplate().pack();
+            this.getTemplate().render();
+        }catch(Exception ex){
+            System.out.print("Errors------>"+ex);
+        }
+        
+    }
+    
+}

@@ -1,0 +1,53 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package TIMS.app.auth.view;
+
+import TIMS.app.lib.hbm.TimsEmployee;
+import TIMS.app.lib.hbm.TimsInvoice;
+import TIMS.app.lib.hbm.TimsUser;
+import com.sun.org.apache.bcel.internal.generic.AALOAD;
+import org.hibernate.HibernateException; 
+import org.hibernate.Session; 
+import org.hibernate.Transaction;
+import org.hibernate.SessionFactory;
+import org.hibernate.cfg.Configuration;
+
+/**
+ *
+ * @author Nuwan Chathuranga <icechathuranga@gmail.com>
+ */
+public class Test {
+     private static SessionFactory factory;
+     
+     public static void main(String args[]){
+         try {
+             factory = new Configuration().configure().buildSessionFactory();
+         } catch (Throwable e) {
+             System.out.println("Faild" +e);
+//             new .
+         }
+         
+         TimsEmployee employee = new TimsEmployee();
+         employee.setNumber("0022");
+         employee.setOtherName("baba");
+         employee.setLastName("Sewwandi");
+         employee.setTelephone("0342247255");
+         
+         TimsUser user = new TimsUser();
+         user.setUserName("Nuwan");
+         user.setPassword("ksajklsjkalsjkl");
+         Session session = factory.openSession();
+         Transaction transaction = null;
+         try {
+             transaction = session.beginTransaction();
+             session.save(user);
+             transaction.commit();
+         } catch (Exception e) {
+             System.out.println("e"+e);
+         }
+     }
+     
+    
+}

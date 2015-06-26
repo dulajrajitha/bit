@@ -1,0 +1,56 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package TIMS.supplier.model;
+
+import TIMS.app.lib.hbm.TimsSupplier;
+import TIMS.supplier.dao.SupplierDao;
+import TIMS.supplier.dto.SupplierDto;
+
+/**
+ *
+ * @author Damith
+ */
+public class SupplierModel {
+
+    protected SupplierDao supplierDao;
+
+    /**
+     * 
+     * @return SupplierDao
+     */
+    public SupplierDao getSupplierDao() {
+        if (this.supplierDao == null) {
+            this.supplierDao = new SupplierDao();
+        }
+        return supplierDao;
+    }
+
+    public void setSupplierDao(SupplierDao supplierDao) {
+        this.supplierDao = supplierDao;
+    }
+
+    public TimsSupplier saveSupplier(SupplierDto supplierDto) {
+        TimsSupplier supplier = new TimsSupplier();
+
+        supplier.setName(supplierDto.getName());
+        supplier.setOtherName(supplierDto.getOtherName());
+        supplier.setCity(supplierDto.getCity());
+        supplier.setEmail(supplierDto.getEmail());
+        supplier.setFax(supplierDto.getFax());
+        supplier.setMobileNo(supplierDto.getMobile());
+        supplier.setPobox(supplierDto.getPobox());
+        supplier.setStreet(supplierDto.getStreet());
+
+        if (supplierDto.getCode() == null) {
+            supplier = this.getSupplierDao().saveSupplier(supplier);
+        } else {
+            supplier.setCode(supplierDto.getCode());
+            supplier = this.getSupplierDao().updateSupplier(supplier);
+        }
+
+        return supplier;
+
+    }
+}

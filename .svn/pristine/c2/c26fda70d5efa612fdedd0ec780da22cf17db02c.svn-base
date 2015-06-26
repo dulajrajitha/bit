@@ -1,0 +1,30 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package TIMS.app.config;
+
+import TIMS.app.template.AbstractTimsTemplate;
+import TIMS.app.template.TimsTemplate;
+import javax.swing.JFrame;
+
+/**
+ *
+ * @author Nuwan Chathuranga <icechathuranga@gmail.com>
+ */
+public class Config {
+    protected JFrame mainTemplate;
+
+    public AbstractTimsTemplate getMainTemplate() {
+        if(mainTemplate==null){
+            mainTemplate = new TimsTemplate();
+        }
+        return (AbstractTimsTemplate) mainTemplate;
+    }
+
+    public void setMainTemplate(JFrame mainTemplate) {
+        this.mainTemplate = mainTemplate;
+    }
+    
+    
+}

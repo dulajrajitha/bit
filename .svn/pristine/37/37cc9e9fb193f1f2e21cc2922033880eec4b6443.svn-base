@@ -1,0 +1,33 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package TIMS.supplier.dao;
+
+import TIMS.app.core.dao.BaseDao;
+import TIMS.app.lib.hbm.TimsSupplier;
+
+/**
+ *
+ * @author Damith
+ */
+public class SaveSupplierDao extends BaseDao {
+
+    TimsSupplier supplier = null;
+
+    @Override
+    public Object saveEntity(Object o) {
+        return super.saveEntity(o);
+    }
+
+    public SaveSupplierDao() {
+    }
+
+    public SaveSupplierDao(TimsSupplier supplier) {
+        this.supplier = supplier;
+    }
+
+    public void execute() {
+        saveEntity(this.supplier);
+    }
+}

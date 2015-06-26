@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated May 30, 2014 10:33:12 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="TIMS.app.lib.hbm.TimsProduct" table="tims_product" catalog="bit_project">
+        <id name="code" type="java.lang.Integer">
+            <column name="code" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="timsProductType" class="TIMS.app.lib.hbm.TimsProductType" fetch="select">
+            <column name="product_type_code" />
+        </many-to-one>
+        <property name="size" type="string">
+            <column name="size" />
+        </property>
+        <property name="name" type="string">
+            <column name="name" />
+        </property>
+        <property name="description" type="string">
+            <column name="description" length="65535" />
+        </property>
+        <set name="timsSaleReturns" inverse="true">
+            <key>
+                <column name="product_code" />
+            </key>
+            <one-to-many class="TIMS.app.lib.hbm.TimsSaleReturn" />
+        </set>
+        <set name="timsProductBrands" inverse="true">
+            <key>
+                <column name="product_code" not-null="true" />
+            </key>
+            <one-to-many class="TIMS.app.lib.hbm.TimsProductBrand" />
+        </set>
+        <set name="timsPurcheses" inverse="true">
+            <key>
+                <column name="product_code" />
+            </key>
+            <one-to-many class="TIMS.app.lib.hbm.TimsPurches" />
+        </set>
+        <set name="timsProductGroups" inverse="false" table="tims_product_product_group">
+            <key>
+                <column name="product_code" not-null="true" />
+            </key>
+            <many-to-many entity-name="TIMS.app.lib.hbm.TimsProductGroup">
+                <column name="product_group_code" not-null="true" />
+            </many-to-many>
+        </set>
+        <set name="timsSales" inverse="true">
+            <key>
+                <column name="product_code" />
+            </key>
+            <one-to-many class="TIMS.app.lib.hbm.TimsSale" />
+        </set>
+        <set name="timsStockReturns" inverse="true">
+            <key>
+                <column name="product_code" />
+            </key>
+            <one-to-many class="TIMS.app.lib.hbm.TimsStockReturn" />
+        </set>
+    </class>
+</hibernate-mapping>

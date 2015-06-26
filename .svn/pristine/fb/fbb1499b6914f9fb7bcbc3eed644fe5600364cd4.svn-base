@@ -1,0 +1,22 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package TIMS.app.auth.dao;
+
+import TIMS.app.core.dao.BaseDao;
+import java.util.List;
+
+/**
+ *
+ * @author Nuwan Chathuranga <icechathuranga@gmail.com>
+ */
+public class UserDao extends BaseDao{
+
+    public List getAllUsers() {        
+       String sql = "FROM  TimsUser";
+       return this.executeQuery(sql, false);
+       
+    }
+    
+}

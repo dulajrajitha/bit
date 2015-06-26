@@ -1,0 +1,41 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package TIMS.supplier.controller;
+
+import TIMS.app.core.controller.BaseController;
+import TIMS.supplier.dto.SupplierDto;
+import TIMS.supplier.model.SupplierModel;
+
+/**
+ *
+ * @author Damith
+ */
+public class SaveSupplierController extends BaseController {
+
+    protected SupplierModel supplierModel = null;
+
+    public SaveSupplierController() {
+    }
+
+    public SupplierModel getSupplierModel() {
+        if (this.supplierModel == null) {
+            this.supplierModel = new SupplierModel();
+        }
+        return supplierModel;
+    }
+
+    public void setSupplierModel(SupplierModel supplierModel) {
+        this.supplierModel = supplierModel;
+    }
+
+    public void saveSupplier(SupplierDto bean) {
+        this.getSupplierModel().saveSupplier(bean);
+    }
+
+    @Override
+    public void execute() {
+        
+    }
+}

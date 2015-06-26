@@ -1,0 +1,71 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package TIMS.brand.model;
+
+import TIMS.app.lib.hbm.TimsBarnd;
+import TIMS.brand.dao.BrandDao;
+import TIMS.brand.dto.BrandDto;
+
+/**
+ *
+ * @author Damith
+ */
+public class BrandModel {
+
+    protected BrandDao brandDao = null;
+
+    public BrandDao getBrandDao() {
+        if (this.brandDao == null) {
+            this.brandDao = new BrandDao();
+        }
+        return brandDao;
+    }
+
+    public void setBrandDao(BrandDao brandDao) {
+        this.brandDao = brandDao;
+    }
+
+    public TimsBarnd saveBrand(BrandDto brandDto) {
+
+        TimsBarnd barnd = null;
+        TimsBarnd newBarnd = null;
+        try {
+
+            if (brandDto.getCode() == null) {
+                barnd = new TimsBarnd();
+            } else {
+                barnd = this.getBrandsByCode(brandDto.getCode());
+            }
+
+
+            barnd.setName(brandDto.getName());
+            barnd.setDescription(brandDto.getDescription());
+            barnd.setOther(brandDto.getOther());
+
+            System.out.println("brandDto.getCode()------>" + brandDto.getCode());
+            if (brandDto.getCode() == null) {
+                newBarnd = this.getBrandDao().saveBrand(barnd);
+            } else {
+                barnd.setCode(brandDto.getCode());
+                newBarnd = this.getBrandDao().updateBrand(barnd);
+            }
+            System.out.println("newBarnd.getCode()------>" + newBarnd.getCode());
+        } catch (Exception e) {
+            System.out.println("error from brand model save---->" + e);
+        }
+
+        return newBarnd;
+    }
+
+    public TimsBarnd getBrandsByCode(Integer code) {
+        TimsBarnd brandsByCode = null;
+        try {
+            brandsByCode = this.getBrandDao().getBrandsByCode(code);
+        } catch (Exception e) {
+            System.out.println("error form getBransbycode in brand model--->" + e);
+        }
+        return brandsByCode;
+    }
+}

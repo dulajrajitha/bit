@@ -1,0 +1,84 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated May 25, 2014 11:46:28 AM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="TIMS.app.lib.hbm.TimsInvoice" table="tims_invoice" catalog="bit_project">
+        <id name="no" type="java.lang.Integer">
+            <column name="no" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="timsSupplier" class="TIMS.app.lib.hbm.TimsSupplier" fetch="select">
+            <column name="supplier_code" not-null="true" />
+        </many-to-one>
+        <many-to-one name="timsCustomer" class="TIMS.app.lib.hbm.TimsCustomer" fetch="select">
+            <column name="customer_code" not-null="true" />
+        </many-to-one>
+        <property name="date" type="date">
+            <column name="date" length="10" />
+        </property>
+        <property name="type" type="string">
+            <column name="type" length="64" />
+        </property>
+        <property name="vehicalNo" type="string">
+            <column name="vehical_no" length="64" />
+        </property>
+        <property name="refInvoice" type="int">
+            <column name="ref_invoice" not-null="true" />
+        </property>
+        <property name="other" type="string">
+            <column name="other" />
+        </property>
+        <property name="saleType" type="string">
+            <column name="sale_type" />
+        </property>
+        <set name="timsSaleReturnsForRefInvoiceNo" inverse="true">
+            <key>
+                <column name="ref_invoice_no" />
+            </key>
+            <one-to-many class="TIMS.app.lib.hbm.TimsSaleReturn" />
+        </set>
+        <set name="timsStockReturnsForRefInvoiceNo" inverse="true">
+            <key>
+                <column name="ref_invoice_no" />
+            </key>
+            <one-to-many class="TIMS.app.lib.hbm.TimsStockReturn" />
+        </set>
+        <set name="timsPayments" inverse="true">
+            <key>
+                <column name="invoice_no" />
+            </key>
+            <one-to-many class="TIMS.app.lib.hbm.TimsPayment" />
+        </set>
+        <set name="timsStockReturnsForInvoiceNo" inverse="true">
+            <key>
+                <column name="invoice_no" />
+            </key>
+            <one-to-many class="TIMS.app.lib.hbm.TimsStockReturn" />
+        </set>
+        <set name="timsSales" inverse="true">
+            <key>
+                <column name="invoice_no" />
+            </key>
+            <one-to-many class="TIMS.app.lib.hbm.TimsSale" />
+        </set>
+        <set name="timsPurcheses" inverse="true">
+            <key>
+                <column name="invoice_no" />
+            </key>
+            <one-to-many class="TIMS.app.lib.hbm.TimsPurches" />
+        </set>
+        <set name="timsGoodRecieveNotes" inverse="true">
+            <key>
+                <column name="invoice_no" />
+            </key>
+            <one-to-many class="TIMS.app.lib.hbm.TimsGoodRecieveNote" />
+        </set>
+        <set name="timsSaleReturnsForInvoiceNo" inverse="true">
+            <key>
+                <column name="invoice_no" />
+            </key>
+            <one-to-many class="TIMS.app.lib.hbm.TimsSaleReturn" />
+        </set>
+    </class>
+</hibernate-mapping>

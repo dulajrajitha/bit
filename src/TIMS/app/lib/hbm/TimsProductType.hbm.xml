@@ -1,0 +1,24 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated May 30, 2014 10:33:12 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="TIMS.app.lib.hbm.TimsProductType" table="tims_product_type" catalog="bit_project">
+        <id name="code" type="java.lang.Integer">
+            <column name="code" />
+            <generator class="identity" />
+        </id>
+        <property name="name" type="string">
+            <column name="name" />
+        </property>
+        <property name="description" type="string">
+            <column name="description" length="1024" />
+        </property>
+        <set name="timsProducts" inverse="true">
+            <key>
+                <column name="product_type_code" />
+            </key>
+            <one-to-many class="TIMS.app.lib.hbm.TimsProduct" />
+        </set>
+    </class>
+</hibernate-mapping>

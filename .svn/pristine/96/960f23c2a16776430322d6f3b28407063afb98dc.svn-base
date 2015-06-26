@@ -1,0 +1,57 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+
+import TIMS.app.core.model.MenuModel;
+import TIMS.app.lib.hbm.TimsMenu;
+import java.util.Set;
+import junit.framework.TestCase;
+import org.junit.After;
+import org.junit.AfterClass;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+/**
+ *
+ * @author Nuwan Chathuranga <icechathuranga@gmail.com>
+ */
+public class MenuModelTest extends TestCase {
+    
+    protected MenuModel menuModel;
+    
+    public MenuModelTest() {
+    }
+    
+    @BeforeClass
+    public static void setUpClass() {
+    }
+    
+    @AfterClass
+    public static void tearDownClass() {
+    }
+    
+    @Before
+    @Override
+    public void setUp() {
+        this.menuModel = new MenuModel();
+    }
+    
+    @After
+    @Override
+    public void tearDown() {
+    }
+    // TODO add test methods here.
+    // The methods must be annotated with annotation @Test. For example:
+    //
+     @Test
+     public void testGetMenuByName() {
+     assertTrue(this.menuModel.getMenuByName("Main Menu")instanceof TimsMenu);
+     TimsMenu menu = this.menuModel.getMenuByName("Main Menu");
+     Set s = menu.getTimsMenuItems();
+     
+         System.out.println("Menu Item : "+s.toString());
+     }
+}

@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated May 30, 2014 10:33:12 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="TIMS.app.lib.hbm.TimsProductBrand" table="tims_product_brand" catalog="bit_project">
+        <composite-id name="id" class="TIMS.app.lib.hbm.TimsProductBrandId">
+            <key-property name="productCode" type="int">
+                <column name="product_code" />
+            </key-property>
+            <key-property name="brandCode" type="int">
+                <column name="brand_code" />
+            </key-property>
+        </composite-id>
+        <many-to-one name="timsProduct" class="TIMS.app.lib.hbm.TimsProduct" update="false" insert="false" fetch="select">
+            <column name="product_code" not-null="true" />
+        </many-to-one>
+        <many-to-one name="timsBarnd" class="TIMS.app.lib.hbm.TimsBarnd" update="false" insert="false" fetch="select">
+            <column name="brand_code" not-null="true" />
+        </many-to-one>
+        <property name="rate" type="java.lang.Long">
+            <column name="rate" precision="10" scale="0" />
+        </property>
+    </class>
+</hibernate-mapping>

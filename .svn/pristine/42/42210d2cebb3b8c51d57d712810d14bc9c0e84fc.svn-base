@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated May 25, 2014 10:57:00 PM by Hibernate Tools 3.2.1.GA -->
+<hibernate-mapping>
+    <class name="TIMS.app.lib.hbm.TimsCustomer" table="tims_customer" catalog="bit_project">
+        <id name="code" type="java.lang.Integer">
+            <column name="code" />
+            <generator class="identity" />
+        </id>
+        <property name="name" type="string">
+            <column name="name" />
+        </property>
+        <property name="otherName" type="string">
+            <column name="other_name" />
+        </property>
+        <property name="pobox" type="string">
+            <column name="pobox" length="64" />
+        </property>
+        <property name="street" type="string">
+            <column name="street" length="128" />
+        </property>
+        <property name="city" type="string">
+            <column name="city" length="128" />
+        </property>
+        <property name="type" type="string">
+            <column name="type" length="10" />
+        </property>
+        <property name="telephone" type="java.lang.Integer">
+            <column name="telephone" />
+        </property>
+        <property name="mobileNo" type="java.lang.Integer">
+            <column name="mobile_no" />
+        </property>
+        <property name="fax" type="java.lang.Integer">
+            <column name="fax" />
+        </property>
+        <property name="email" type="string">
+            <column name="email" length="128" />
+        </property>
+        <property name="other" type="string">
+            <column name="other" />
+        </property>
+        <set name="timsInvoices" inverse="true">
+            <key>
+                <column name="customer_code" />
+            </key>
+            <one-to-many class="TIMS.app.lib.hbm.TimsInvoice" />
+        </set>
+    </class>
+</hibernate-mapping>

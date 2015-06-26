@@ -1,0 +1,25 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package TIMS.customer.controller;
+
+import TIMS.app.core.controller.BaseController;
+import java.awt.event.ActionEvent;
+import javax.swing.JOptionPane;
+
+/**
+ *
+ * @author Nuwan Chathuranga <icechathuranga@gmail.com>
+ */
+public class ViewCustomerController extends BaseController {
+
+    public ViewCustomerController(ActionEvent e) {
+        super(e);
+    }
+
+    @Override
+    public void execute() {
+        JOptionPane.showMessageDialog(null, "Eggs are not supposed to be green.");
+    }
+}

@@ -1,0 +1,48 @@
+/*
+ * To change this template, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package TIMS.customer.controller;
+
+import TIMS.app.core.controller.BaseController;
+import TIMS.customer.view.CustomerForm;
+import java.awt.event.ActionEvent;
+import javax.swing.BoxLayout;
+
+/**
+ *
+ * @author Damith
+ */
+public class AddCustomerController extends BaseController{
+
+    public AddCustomerController(){
+        
+    }
+    public AddCustomerController(ActionEvent e){
+        super(e);
+    }
+    
+    @Override
+    public void execute() {
+        try{
+            this.setAddCustomerScreen();
+        }catch(Exception ex){
+            System.out.print("Errors--->"+ex);
+        }
+    }
+
+    private void setAddCustomerScreen() {
+        
+        try{
+            CustomerForm customerForm = new CustomerForm();
+            this.getMainPanel().removeAll();
+            this.getMainPanel().setLayout(new BoxLayout(this.getMainPanel(), BoxLayout.PAGE_AXIS));
+            this.getMainPanel().add(customerForm);
+            this.getTemplate().pack();
+            this.getTemplate().render();
+        }catch(Exception ex){
+            System.out.print("Errors--->"+ex);
+        }
+    }
+    
+}
