@@ -123,6 +123,11 @@ public class PurchaseForm extends javax.swing.JPanel {
         jLabel8.setText("Product Code");
 
         Pur_ProductCode.setToolTipText("");
+        Pur_ProductCode.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                Pur_ProductCodeActionPerformed(evt);
+            }
+        });
 
         jLabel9.setFont(new java.awt.Font("Tahoma", 0, 12)); // NOI18N
         jLabel9.setText("Brand Code");
@@ -326,7 +331,7 @@ public class PurchaseForm extends javax.swing.JPanel {
         purchaseDto.setStatus(Pur_Status.getText());
         purchaseDto.setBrandCode(Pur_BrandCode.getSelectedItem().toString());
         purchaseDto.setInvoiceNo(Pur_InvoiceNo.getSelectedItem().toString());
-        //purchaseDto.setProductCode(Pur_ProductCode.getSelectedItem().toString());
+        purchaseDto.setProductCode(Pur_ProductCode.getSelectedItem().toString());
         purchaseDto.setProductCode(10);
         
         
@@ -346,6 +351,10 @@ public class PurchaseForm extends javax.swing.JPanel {
                 Pur_Tax.setText(null);
                 
     }//GEN-LAST:event_ResetActionPerformed
+
+    private void Pur_ProductCodeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Pur_ProductCodeActionPerformed
+        
+    }//GEN-LAST:event_Pur_ProductCodeActionPerformed
 public String getPur_Discount() {
         return this.Pur_Discount.getText();
     }
@@ -423,7 +432,7 @@ public String getPur_Quantity() {
   
  private void setProductList(ProductComboItem[] prodcutListComboItem) {
         for (ProductComboItem prodcutComboItem : prodcutListComboItem) {
-            this.Pur_BrandCode.addItem(prodcutComboItem);
+            this.Pur_ProductCode.addItem(prodcutComboItem);
         }
   }
  private ProductModel getProductModel() {

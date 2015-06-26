@@ -12,8 +12,11 @@ import TIMS.invoice.dto.InvoiceComboItem;
 import TIMS.invoice.dto.InvoiceNoComboItem;
 import TIMS.invoice.dto.InvoiceTypeComboItem;
 import TIMS.invoice.model.InvoiceModel;
+import TIMS.product.dto.ProductComboItem;
+import TIMS.product.model.ProductModel;
 import TIMS.sales.controller.SaveSalesController;
 import TIMS.sales.dto.SalesDto;
+import javax.swing.JComboBox;
 
 /**
  *
@@ -27,11 +30,15 @@ public class SalesForm extends javax.swing.JPanel {
     
     protected InvoiceModel invoiceModel;
     protected BrandModel brandModel;
+    protected ProductModel productModel;
     public SalesForm() {
         initComponents();
         this.setInvoiceList(this.getInvoiceModel().getInvoiceNoListComboItem());
         this.setBrandList(this.getBrandModel().getBrandComboItem());
+        this.setProdcutList(this.getProductModel().getProductsForCombo());
+        
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -245,7 +252,7 @@ private void SaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:ev
         salesDto.setRate(Sales_Rate.getText());
         salesDto.setQuantity(Sales_Qty.getText());
         salesDto.setInvoiceNo(Sales_InvoiceNo.getSelectedItem().toString());
-       // salesDto.setProductCode(Sales_ProdcutCode.getSelectedItem().toString());
+        salesDto.setProductCode(Sales_ProdcutCode.getSelectedItem().toString());
         salesDto.setProductCode("SS");
         salesDto.setDiscount(Sales_Discount.getText());
         salesDto.setBrandCode(Sales_BrandCode.getSelectedItem().toString());       
@@ -270,11 +277,30 @@ private void SaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:ev
             this.Sales_InvoiceNo.addItem(invoiceComboItem);
         }
   }
+  
+  
   private void setBrandList(BrandComboItem[] brandListComboItem) {
         for (BrandComboItem brandComboItem : brandListComboItem) {
             this.Sales_BrandCode.addItem(brandComboItem);
         }
   }
+  
+  private void setProdcutList(ProductComboItem[] productListComboItem) {
+        for (ProductComboItem productComboItem : productListComboItem) {
+            this.Sales_ProdcutCode.addItem(productComboItem);
+        }
+  }
+    public JComboBox getSales_ProdcutCode() {
+        return Sales_ProdcutCode;
+    }
+
+    public void setSales_ProdcutCode(ProductComboItem[] productListComboItem) {
+        
+         for (ProductComboItem productComboItem : productListComboItem) {
+           this.Sales_ProdcutCode.addItem(productComboItem);
+         }
+    }
+  
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton Reset;
     private javax.swing.JComboBox Sales_BrandCode;
@@ -310,5 +336,12 @@ private void SaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:ev
             brandModel = new BrandModel();
         }
         return brandModel;
+    }
+    private ProductModel getProductModel() {
+        
+        if (productModel == null) {
+            productModel = new ProductModel();
+        }
+        return productModel;
     }
 }
