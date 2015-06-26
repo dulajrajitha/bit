@@ -12,7 +12,7 @@ import javax.swing.BoxLayout;
 
 /**
  *
- * @author Sithara Gunawardana
+ * @author Sithara gunawardana
  */
 public class AddCustomerController extends BaseController {
 

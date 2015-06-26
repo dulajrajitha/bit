@@ -3,8 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/home/dula/Desktop/Bit-Project/Bit-Project/src/TIMS/customer/view/CustomerDetails.java</file>
-            <file>file:/home/dula/Desktop/Bit-Project/Bit-Project/src/TIMS/customer/controller/AddCustomerController.java</file>
+            <file>file:/C:/Users/Harsha/Documents/GitHub/bit/src/TIMS/purches/view/PurchaseForm.java</file>
+            <file>file:/C:/Users/Harsha/Documents/GitHub/bit/src/TIMS/customer/view/CustomerDetails.java</file>
+            <file>file:/C:/Users/Harsha/Documents/GitHub/bit/src/TIMS/customer/controller/AddCustomerController.java</file>
+            <file>file:/C:/Users/Harsha/Documents/GitHub/bit/src/TIMS/sales/view/SalesDetails.java</file>
+            <file>file:/C:/Users/Harsha/Documents/GitHub/bit/src/TIMS/sales/view/SalesForm.java</file>
+            <file>file:/C:/Users/Harsha/Documents/GitHub/bit/src/TIMS/purches/view/PurchaseDetails.java</file>
+            <file>file:/C:/Users/Harsha/Documents/GitHub/bit/src/TIMS/brand/dto/BrandComboItem.java</file>
+            <file>file:/C:/Users/Harsha/Documents/GitHub/bit/src/TIMS/customer/controller/SaveCustomerController.java</file>
         </group>
     </open-files>
 </project-private>

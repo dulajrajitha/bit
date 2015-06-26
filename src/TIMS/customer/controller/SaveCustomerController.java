@@ -11,7 +11,7 @@ import TIMS.customer.model.CustomerModel;
 
 /**
  *
- * @author Sithara
+ * @author Sithara Gunawardana
  */
 public class SaveCustomerController extends BaseController {
 
